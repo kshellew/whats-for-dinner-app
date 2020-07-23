@@ -12,12 +12,24 @@
 <body>
     <div class="container">
         <h1>What's For Dinner?</h1>
-        <p>Tired of having to decide what is for dinner? Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p class='intro'>Tired of having to decide what is for dinner? Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         <form>
           <input type="submit" value="Get my Dinner and Drink!">
         </form>
+    
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <p id="js-error-message" class="error-message"></p>
+    <section class="dinner-results hidden">
+      <h2>Dinner Results</h2>
+      <div class="js-dinner-results">
+      </div>
+    </section>
+    <section class="drink-results hidden">
+        <h2>Drink Results</h2>
+        <div class="js-drink-results">
+        </div>
+      </section>
 </body>
 </html>
