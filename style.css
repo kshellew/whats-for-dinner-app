@@ -13,4 +13,14 @@ body {
 .hidden {
   display: none;
 }
+
+form{
+  display: flex;
+  justify-content: space-evenly ;
+}
   
+.results-ctnr{
+  display: flex;
+  justify-content: space-evenly ;
+  text-align: center;
+}
