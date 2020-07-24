@@ -11,11 +11,11 @@ function watchForm() {
   });
 }
 
-function watchDrink() {
-    $('.drink-submit').click(event => {
+function watchDessert() {
+    $('.dessert-submit').click(event => {
       event.preventDefault();
       //$('.intro').addClass('hidden');
-      getDrink();
+      getDessert();
     });
   }
 
@@ -28,10 +28,10 @@ function getDinner() {
       });
     }
 
-function getDrink() {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
-        .then(responseDrink => responseDrink.json())
-        .then(responseDrinkJson => displayDrink(responseDrinkJson))
+function getDessert() {
+    fetch('https://api.spoonacular.com/recipes/random?number=1&tags=dessert&apiKey=3189deaed56f4d3fbcff0482cb212351')
+        .then(responseDessert => responseDessert.json())
+        .then(responseDessertJson => displayDessert(responseDessertJson))
         .catch(err =>{
             $('#js-error-message').text(`Something went wrong: ${err.message}`);
         });
@@ -47,18 +47,19 @@ function displayMeal(responseDinnerJson) {
     $('.dinner-results').removeClass('hidden');
 }
 
-function displayDrink(responseDrinkJson) {
+function displayDessert(responseDessertJson) {
      //clears the result and appends the returned meal
-     $('.js-drink-results')
+     console.log(responseDessertJson)
+     $('.js-dessert-results')
      .html('')
-     .append(`<h3>drink title</h3>`);
+     .append(`<h3>${responseDessertJson.recipes[0].title}</h3><p>Ready In: ${responseDessertJson.recipes[0].readyInMinutes} minutes</p><p>Serves ${responseDessertJson.recipes[0].servings}</p><img src='${responseDessertJson.recipes[0].image}' class= 'dinner-img' alt='picture of the dish'><br><a href='${responseDessertJson.recipes[0].sourceUrl}' target="_blank">Link to Full Recipe</a>`);
  
      //display the results section
- $('.drink-results').removeClass('hidden');
+ $('.dessert-results').removeClass('hidden');
 } 
 
 $(function() {
   console.log('App loaded! Waiting for submit!');
   watchForm();
-  watchDrink();
+  watchDessert();
 })
