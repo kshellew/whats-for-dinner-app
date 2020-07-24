@@ -1,23 +1,33 @@
 'use strict';
 
+document.cookie = 'SameSite=None; Secure';
+
 function watchForm() {
-  $('form').submit(event => {
+  $('.dinner-submit').click(event => {
     event.preventDefault();
-    $('.intro').addClass('hidden');
+    //$('.intro').addClass('hidden');
     getDinner();
-    getDrink();
+    //getDrink();
   });
 }
 
-function getDinner() {
-    fetch('https://api.spoonacular.com/recipes/random?number=3&tags=dinner&apiKey=3189deaed56f4d3fbcff0482cb212351')
-      .then(responseDinner => responseDinner.json())
-      .then(responseDinnerJson => displayMeal(responseDinnerJson)
-      .catch(err=> {
-        $('#js-error-message').text(`Something went wrong: ${err.message}`);
-      })
-      );
+function watchDrink() {
+    $('.drink-submit').click(event => {
+      event.preventDefault();
+      //$('.intro').addClass('hidden');
+      getDrink();
+    });
   }
+
+function getDinner() {
+    fetch('https://api.spoonacular.com/recipes/random?number=1&tags=dinner&apiKey=3189deaed56f4d3fbcff0482cb212351') 
+      .then(responseDinner => responseDinner.json())
+      .then(responseDinnerJson => displayMeal(responseDinnerJson))
+      .catch(error=> {
+        $('#js-error-message').text(`Something went wrong: ${error.message}`);
+      });
+    }
+
 function getDrink() {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
         .then(responseDrink => responseDrink.json())
@@ -29,10 +39,10 @@ function getDrink() {
 
 function displayMeal(responseDinnerJson) {
     //clears the result and appends the returned meal
+    console.log(responseDinnerJson)
     $('.js-dinner-results')
         .html('')
-        .append(`this is a meal test`);
-    
+        .append(`<h3>${responseDinnerJson.recipes[0].title}</h3><p>Ready In: ${responseDinnerJson.recipes[0].readyInMinutes} minutes</p><p>Serves ${responseDinnerJson.recipes[0].servings}</p><img src='${responseDinnerJson.recipes[0].image}' class= 'dinner-img' alt='picture of the dish'><br><a href='${responseDinnerJson.recipes[0].sourceUrl}' target="_blank">Link to Full Recipe</a>`);
         //display the results section
     $('.dinner-results').removeClass('hidden');
 }
@@ -41,7 +51,7 @@ function displayDrink(responseDrinkJson) {
      //clears the result and appends the returned meal
      $('.js-drink-results')
      .html('')
-     .append(`this is a drink test`);
+     .append(`<h3>drink title</h3>`);
  
      //display the results section
  $('.drink-results').removeClass('hidden');
@@ -50,4 +60,5 @@ function displayDrink(responseDrinkJson) {
 $(function() {
   console.log('App loaded! Waiting for submit!');
   watchForm();
-});
+  watchDrink();
+})
