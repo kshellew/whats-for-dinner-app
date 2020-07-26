@@ -6,33 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>What's For Dinner</title>
     <link rel="shortcut icon" href="#">
-    <!-- <link href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css' rel="stylesheet" type="text/css"/>-->
+    <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/fork-and-knife-with-plate_1f37d.png">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css' rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>What's For Dinner?</h1>
-        <p class='intro'>Tired of having to decide what is for dinner? Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        <form>
-          <input type="submit" value="Get A Dinner" class='dinner-submit'>
-          <input type="submit" value="Get A Dessert" class='dessert-submit'>
+        <h2 class='js-intro'>Tired of having to decide what's for dinner? Let the magic of the internet decide for you!</h2>
+        <form class='start'>
+          <button type="submit" class='init-submit-btn'>Get A Dinner 🍽 & Dessert 🧁</button>
         </form>
-    
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
     <p id="js-error-message" class="error-message"></p>
     <section class='results-ctnr'>
       <section class="dinner-results hidden">
-        <h2>Dinner Results</h2>
+        <form>
+          <button type="submit"class='dinner-submit'>Get A New Dinner 🍽</button>
+        </form>
         <div class="js-dinner-results">
         </div>
       </section>
+      <section class='vl hidden'></section>
       <section class="dessert-results hidden">
-          <h2>Dessert Results</h2>
+        <form>
+          <button type="submit"class='dessert-submit'>Get A New Dessert 🧁</button>
+        </form>
           <div class="js-dessert-results">
           </div>
-        </section>
+      </section>
     </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
