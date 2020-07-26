@@ -18,7 +18,6 @@ function watchForm() {
 function watchDinner() {
   $('.dinner-submit').click(event => {
     event.preventDefault();
-    //$('.intro').addClass('hidden');
     getDinner();
   });
 }
@@ -26,7 +25,6 @@ function watchDinner() {
 function watchDessert() {
     $('.dessert-submit').click(event => {
       event.preventDefault();
-      //$('.intro').addClass('hidden');
       getDessert();
     });
   }
@@ -51,7 +49,6 @@ function getDessert() {
 
 function displayDinner(responseDinnerJson) {
     //clears the result and appends the returned meal
-    console.log(responseDinnerJson)
     $('.js-dinner-results')
         .html('')
         .append(`<h3>${responseDinnerJson.recipes[0].title}</h3><p>Ready In: ${responseDinnerJson.recipes[0].readyInMinutes} minutes</p><p>Serves ${responseDinnerJson.recipes[0].servings}</p><img src='${responseDinnerJson.recipes[0].image}' class= 'dinner-img' alt='picture of the dinner dish'><br><a href='${responseDinnerJson.recipes[0].sourceUrl}' target="_blank">Link to Full Recipe</a>`);
@@ -61,7 +58,6 @@ function displayDinner(responseDinnerJson) {
 
 function displayDessert(responseDessertJson) {
      //clears the result and appends the returned meal
-     console.log(responseDessertJson)
      $('.js-dessert-results')
      .html('')
      .append(`<h3>${responseDessertJson.recipes[0].title}</h3><p>Ready In: ${responseDessertJson.recipes[0].readyInMinutes} minutes</p><p>Serves ${responseDessertJson.recipes[0].servings}</p><img src='${responseDessertJson.recipes[0].image}' class= 'desert-img' alt='picture of the dessert dish'><br><a href='${responseDessertJson.recipes[0].sourceUrl}' target="_blank">Link to Full Recipe</a>`);
